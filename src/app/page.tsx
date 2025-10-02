@@ -4,6 +4,14 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createInterviewUrl } from '../lib/utils';
 
+// Get API base URL based on current location
+const getApiBaseUrl = () => {
+  if (typeof window !== 'undefined') {
+    return `${window.location.protocol}//${window.location.hostname}:3001`;
+  }
+  return 'http://localhost:3001';
+};
+
 interface ActiveSession {
   id: string;
   candidateName: string;

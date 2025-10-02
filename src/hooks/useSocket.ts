@@ -12,7 +12,12 @@ export const useSocket = (interviewId: string, initialData?: InterviewData) => {
   const initialDataRef = useRef(initialData);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3001');
+    // Use the current host for Socket.IO connection
+    const socketUrl = typeof window !== 'undefined' 
+      ? `${window.location.protocol}//${window.location.hostname}:3001`
+      : 'http://localhost:3001';
+    
+    const newSocket = io(socketUrl);
     
     newSocket.on('connect', () => {
       setIsConnected(true);
