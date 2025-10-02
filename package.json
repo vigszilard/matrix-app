@@ -2,25 +2,43 @@
   "name": "matrix-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "socket-server": "node server/socket-server.mjs",
+    "docker:build": "docker build -t matrix-app .",
+    "docker:run": "docker run -p 3000:3000 -p 3001:3001 matrix-app",
+    "docker:compose": "docker compose up --build",
+    "docker:compose:down": "docker compose down"
   },
   "dependencies": {
+    "@types/html2canvas": "^0.5.35",
+    "@types/jspdf": "^1.3.3",
+    "@types/socket.io-client": "^1.4.36",
+    "@types/uuid": "^10.0.0",
+    "clsx": "^2.1.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.3",
+    "lucide-react": "^0.544.0",
+    "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "tailwind-merge": "^3.3.1",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@biomejs/biome": "2.2.0",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
-    "@biomejs/biome": "2.2.0"
+    "typescript": "^5"
   }
 }

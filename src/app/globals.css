@@ -24,3 +24,108 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom slider styles */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Green slider for interviewer 2 */
+.slider[style*="10b981"]::-webkit-slider-thumb {
+  background: #10b981;
+}
+
+.slider[style*="10b981"]::-moz-range-thumb {
+  background: #10b981;
+}
+
+/* PDF Export Compatibility - Override problematic colors */
+.pdf-content {
+  /* Override Tailwind CSS v4 lab() colors with standard hex values */
+  --tw-bg-gray-50: #f9fafb;
+  --tw-bg-white: #ffffff;
+  --tw-text-gray-900: #111827;
+  --tw-text-gray-700: #374151;
+  --tw-text-gray-600: #4b5563;
+  --tw-text-blue-700: #1d4ed8;
+  --tw-text-blue-900: #1e3a8a;
+  --tw-text-green-700: #15803d;
+  --tw-text-green-900: #14532d;
+  --tw-border-gray-300: #d1d5db;
+  --tw-ring-blue-500: #3b82f6;
+  --tw-ring-green-500: #10b981;
+}
+
+/* Force standard colors for PDF generation */
+.pdf-content .bg-gray-50 {
+  background-color: #f9fafb !important;
+}
+
+.pdf-content .bg-white {
+  background-color: #ffffff !important;
+}
+
+.pdf-content .text-gray-900 {
+  color: #111827 !important;
+}
+
+.pdf-content .text-gray-700 {
+  color: #374151 !important;
+}
+
+.pdf-content .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.pdf-content .text-blue-700 {
+  color: #1d4ed8 !important;
+}
+
+.pdf-content .text-blue-900 {
+  color: #1e3a8a !important;
+}
+
+.pdf-content .text-green-700 {
+  color: #15803d !important;
+}
+
+.pdf-content .text-green-900 {
+  color: #14532d !important;
+}
+
+.pdf-content .border-gray-300 {
+  border-color: #d1d5db !important;
+}
+
+/* Focus states for PDF compatibility */
+.pdf-content input:focus,
+.pdf-content textarea:focus {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}
